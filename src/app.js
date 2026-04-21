@@ -3,8 +3,9 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 require("express-async-errors");
-require("dotenv").config();
-
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 const bookRoutes = require("./routes/book.routes");
 const adminRoutes = require("./routes/admin.routes");
 
