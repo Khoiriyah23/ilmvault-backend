@@ -15,7 +15,11 @@ const app = express();
 
 // ── Middleware ──────────────────────────────────────────
 app.use(cors({
-  origin: process.env.CLIENT_URL,
+  origin: [
+    "http://localhost:3000",
+    "https://ilmvault.vercel.app",
+    process.env.CLIENT_URL
+  ],
   credentials: true,
 }));
 app.use(express.json());
